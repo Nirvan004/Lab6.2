@@ -1,4 +1,4 @@
-import { NetworkError, DataError } from "./errors";
+import { NetworkError, DataError } from "./errors.js";
 export const fetchProductCatalog = () => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {

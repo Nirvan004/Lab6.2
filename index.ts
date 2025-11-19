@@ -1,4 +1,4 @@
-import { fetchProductCatalog, fetchProductReviews, fetchSalesReport } from "./apiSimulator";
+import { fetchProductCatalog, fetchProductReviews, fetchSalesReport } from "./apiSimulator.js";
 
 const runApp = () => {
     console.log("Starting API calls...\n");

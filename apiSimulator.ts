@@ -1,23 +1,23 @@
-import { NetworkError, DataError } from "./errors";
+import { NetworkError, DataError } from "./errors.js";
 export const fetchProductCatalog = (): Promise<{ id: number; name: string; price: number }[]> => {
     return new Promise((resolve, reject) => {
-    setTimeout(() => {
-        if (Math.random() >= 0.8) {
-            reject(new NetworkError("Failed to fetch product catalog"));
-            return;
-        }
-        const products = [
-            { id: 1, name: "Xbox Elite Controller", price: 120 },
-            { id: 2, name: "Sony WH-1000XM4", price: 300 },
-        ];
+        setTimeout(() => {
+            if (Math.random() >= 0.8) {
+                reject(new NetworkError("Failed to fetch product catalog"));
+                return;
+            }
+            const products = [
+                { id: 1, name: "Xbox Elite Controller", price: 120 },
+                { id: 2, name: "Sony WH-1000XM4", price: 300 },
+            ];
 
-        if (!products || !Array.isArray(products)) {
-            reject(new DataError("Invalid product catalog data"));
-            return;
-        }
+            if (!products || !Array.isArray(products)) {
+                reject(new DataError("Invalid product catalog data"));
+                return;
+            }
 
-        resolve(products);
-    }, 1000);
+            resolve(products);
+        }, 1000);
     });
 };
 
@@ -32,20 +32,20 @@ export const fetchProductReviews = (
             }
             const reviews = [
                 {
-                        reviewer: "Nirvan",
-                        rating: 5,
-                        comment: "Nice!!! :D",
-                    },
-                    {
-                        reviewer: "Lewis",
-                        rating: 4,
-                        comment: "Satisfactory."
-                    },
-                    {
-                        reviewer: "Tina",
-                        rating: 2,
-                        comment: "Came late but still works nicely."
-                    }
+                    reviewer: "Nirvan",
+                    rating: 5,
+                    comment: "Nice!!! :D",
+                },
+                {
+                    reviewer: "Lewis",
+                    rating: 4,
+                    comment: "Satisfactory."
+                },
+                {
+                    reviewer: "Tina",
+                    rating: 2,
+                    comment: "Came late but still works nicely."
+                }
             ];
             if (!reviews || !Array.isArray(reviews)) {
                 reject(new DataError(`Invalid review data for product ID ${productId}`));
@@ -73,7 +73,7 @@ export const fetchSalesReport = (): Promise<{
                 unitsSold: 3245,
                 averagePrice: 213.45
             };
-            
+
             if (
                 report.totalSales === undefined ||
                 report.unitsSold === undefined ||
